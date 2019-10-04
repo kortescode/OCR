@@ -1,0 +1,10 @@
+
+.project
+.classpath
+.settings/
+bin/
+img/tmp/
+img/step1/
+img/step2/
+img/bonus/
+*.jar
