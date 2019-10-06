@@ -2,7 +2,7 @@
 
 Optical Character Recognizer is a JAVA executable (JAR). It converts handwritten characters into machine-encoded characters using a multilayer artificial neural network system.
 
-![ Optical Character Recognizer preview](img/preview.png)
+![Optical Character Recognizer preview](img/preview.png)
 
 ## Requirements
 
@@ -34,7 +34,9 @@ To launch the Java executable, use:
 ```bash
 make run
 ```
-Then, select an BMP image (available in [`img/`](img/)) and click on the "Start" button.
+Then, select an BMP image (available in [`img/`](img/)) and click on the "Start" button :
+
+<img src="img/browse_preview.png" width="300" title="Optical Character Recognizer browse preview">
 
 ## License
 
