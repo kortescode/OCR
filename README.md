@@ -1,6 +1,6 @@
 # Optical Character Recognizer
 
-Optical Character Recognizer is a JAVA executable (JAR). It converts handwritten characters into machine-encoded characters using a multilayer artificial neural network system.
+Optical Character Recognizer is a Java executable (Jar). It converts handwritten characters into machine-encoded characters using a multilayer artificial neural network system.
 
 ![Optical Character Recognizer preview](img/preview.png)
 
