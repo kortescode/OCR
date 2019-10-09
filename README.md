@@ -2,7 +2,7 @@
 
 Optical Character Recognizer is a Java executable (Jar). It converts handwritten characters into machine-encoded characters using a multilayer artificial neural network system.
 
-![Optical Character Recognizer preview](img/preview.png)
+<img src="img/previews/text_preview.png" width="500" title="Optical Character Recognizer text preview">
 
 ## Requirements
 
@@ -23,7 +23,6 @@ sudo apt-get install libfann-dev
 ## Compilation
 
 To build the executable, use:
-
 ```bash
 make all
 ```
@@ -34,9 +33,18 @@ To launch the Java executable, use:
 ```bash
 make run
 ```
-Then, select an BMP image (available in [`img/`](img/)) and click on the "Start" button :
+Then, browse, select an BMP image and click on the "Start" button. Some BMP example are availbale in:
+- [`img/letters/`](img/letters/)
+- [`img/letters_small/`](img/letters_small/)
+- [`img/numbers/`](img/numbers/)
+- [`img/symbols/`](img/symbols/)
+- [`img/text/`](img/texts/)
 
-<img src="img/browse_preview.png" width="300" title="Optical Character Recognizer browse preview">
+The vertical space sensibility is defined by the `MATRIX_SPACE_SENSI_Y` constant (see .[`ICharactersConstants.java`](src/bmp/ICharactersConstants.java)).
+
+The horizontal space sensibility is defined by the `MIN_SPACE_CHARS` constant (see .[`INeuralNetworkConstants.java`](src/fann/INeuralNetworkConstants.java)).
+
+<img src="img/previews/letter_preview.png" width="250" title="Optical Character Recognizer letter preview"> <img src="img/previews/symbol_preview.png" width="250" title="Optical Character Recognizer symbol preview"> <img src="img/previews/browse_preview.png" width="250" title="Optical Character Recognizer browse preview">
 
 ## License
 
