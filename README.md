@@ -40,9 +40,9 @@ Then, browse, select an BMP image and click on the "Start" button. Some BMP exam
 - [`img/symbols/`](img/symbols/)
 - [`img/text/`](img/texts/)
 
-The vertical space sensibility is defined by the `MATRIX_SPACE_SENSI_Y` constant (see .[`ICharactersConstants.java`](src/bmp/ICharactersConstants.java)).
+The vertical space sensibility is defined by the `MATRIX_SPACE_SENSI_Y` constant (see [`ICharactersConstants.java`](src/bmp/ICharactersConstants.java)).
 
-The horizontal space sensibility is defined by the `MIN_SPACE_CHARS` constant (see .[`INeuralNetworkConstants.java`](src/fann/INeuralNetworkConstants.java)).
+The horizontal space sensibility is defined by the `MIN_SPACE_CHARS` constant (see [`INeuralNetworkConstants.java`](src/fann/INeuralNetworkConstants.java)).
 
 <img src="img/previews/letter_preview.png" width="250" title="Optical Character Recognizer letter preview"> <img src="img/previews/symbol_preview.png" width="250" title="Optical Character Recognizer symbol preview"> <img src="img/previews/browse_preview.png" width="250" title="Optical Character Recognizer browse preview">
 
