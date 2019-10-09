@@ -42,7 +42,7 @@ final public class Ocr extends KeyAdapter implements ActionListener, MouseListen
     final private Button        start                = new Button("start", this);
     final private Window        win_ref;
     final private JLabel        computedPicture      = new JLabel();
-    final private JTextArea     resultContent        = new JTextArea();
+    final private JTextArea     resultContent        = new JTextArea(5, 20);
     final private GuiContent    reliabilityContent   = new GuiContent(" Reliability: ", "_");
 
     private NeuralNetwork       nn;

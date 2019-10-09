@@ -21,4 +21,6 @@ public interface INeuralNetworkConstants
 	public static final String TRAIN_DAT_FILE = "ocr-train.dat";
 	public static final String TEST_DAT_FILE = "ocr-test.dat";	
 	public static final String NET_FILE = "ocr3.net";
+	
+	public static final int MIN_SPACE_CHARS = 100;
 }

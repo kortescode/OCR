@@ -69,10 +69,7 @@ public class NeuralNetwork
 					if (i + 1 < characters.length)
 						this.result += "\n";
 				}
-			this.result = this.result.trim()
-									 .replaceAll("\n", " ")
-									 .replaceAll(" {100,}", " ")
-									 .replaceAll(" {2,}", "");
+			this.result = this.result.trim().replaceAll("\n", " ").replaceAll(" {" + INeuralNetworkConstants.MIN_SPACE_CHARS + ",}", " ").replaceAll(" {2,}", "");
 			return true;
 		}
 		return false;
