@@ -2,9 +2,7 @@ package fann;
 
 import java.io.File;
 import java.io.IOException;
-
 import bmp.Image;
-
 import com.googlecode.fannj.Fann;
 
 public class NeuralNetwork
@@ -62,10 +60,19 @@ public class NeuralNetwork
 				for (int i = 0; i < characters.length; ++i)
 				{
 					for (int j = 0; j < characters[i].length; ++j)
-						this.setResult(this.fann.run(characters[i][j].getBinaryArray()));
+					{
+						if (characters[i][j] != null)
+							this.setResult(this.fann.run(characters[i][j].getBinaryArray()));
+						else
+							this.result += " ";
+					}
 					if (i + 1 < characters.length)
 						this.result += "\n";
 				}
+			this.result = this.result.trim()
+									 .replaceAll("\n", " ")
+									 .replaceAll(" {100,}", " ")
+									 .replaceAll(" {2,}", "");
 			return true;
 		}
 		return false;

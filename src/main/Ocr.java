@@ -30,9 +30,6 @@ import widget.Label;
 import widget.Panel;
 import widget.TextField;
 import widget.Window;
-import bmp.ICharacterConstants;
-import bmp.IImageConstants;
-import fann.Dat;
 import fann.INeuralNetworkConstants;
 import fann.NeuralNetwork;
 
@@ -45,7 +42,7 @@ final public class Ocr extends KeyAdapter implements ActionListener, MouseListen
     final private Button        start                = new Button("start", this);
     final private Window        win_ref;
     final private JLabel        computedPicture      = new JLabel();
-    final private JTextArea     resultContent        = new JTextArea(5, 20);
+    final private JTextArea     resultContent        = new JTextArea();
     final private GuiContent    reliabilityContent   = new GuiContent(" Reliability: ", "_");
 
     private NeuralNetwork       nn;
@@ -74,7 +71,7 @@ final public class Ocr extends KeyAdapter implements ActionListener, MouseListen
         resultContent.setEditable(false);
 
         Panel computedPictureContainer = new Panel();
-        computedPictureContainer.setPreferredSize(new Dimension(60, 60));
+        computedPictureContainer.setMinimumSize(new Dimension(60, 60));
         computedPictureContainer.getBody().add(computedPicture);
 
         Panel resultContainer = new Panel();
@@ -231,14 +228,6 @@ final public class Ocr extends KeyAdapter implements ActionListener, MouseListen
                 } else {
                     JOptionPane.showMessageDialog(null, "Error: " + file.getName()
                                                     + " is not a bmp file.", "Error",
-                                                    JOptionPane.ERROR_MESSAGE);
-                    return false;
-                }
-                if (!(image.getWidth() == ICharacterConstants.WIDTH && image.getHeight() == ICharacterConstants.HEIGHT)
-                                                && !(image.getWidth() == IImageConstants.WIDTH && image
-                                                                                .getHeight() == IImageConstants.HEIGHT)) {
-                    JOptionPane.showMessageDialog(null, "Error: " + file.getName()
-                                                    + " is not at a good format.", "Error",
                                                     JOptionPane.ERROR_MESSAGE);
                     return false;
                 }

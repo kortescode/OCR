@@ -8,14 +8,12 @@ import javax.imageio.ImageIO;
 
 public class Image
 {
-	private EImageType type = EImageType.UNKNOW;
 	private BufferedImage image = null;
 	private Character[][] characters = null;
 	
 	public Image(File file) throws IOException
 	{
 		this.image = ImageIO.read(file);
-		this.initType();
 		this.generateCharacters();
 	}
 	
@@ -24,25 +22,9 @@ public class Image
 		return new Image(file);
 	}
 	
-	private void initType()
+	private void generateCharacters() throws IOException
 	{
-		if (this.image.getWidth() == ICharacterConstants.WIDTH && this.image.getHeight() == ICharacterConstants.HEIGHT)
-			this.type = EImageType.CHAR;
-		else if (this.image.getWidth() == IImageConstants.WIDTH && this.image.getHeight() == IImageConstants.HEIGHT)
-			this.type = EImageType.IMG;		
-	}
-	
-	private void generateCharacters()
-	{
-		if (this.type == EImageType.CHAR)
-		{
-			this.characters = new Character[1][1];
-			this.characters[0][0] = Character.getFromImage(this.image);
-		}
-		else if (this.type == EImageType.IMG)
-		{
-			;// TO DO
-		}
+		this.characters = Characters.getFromImage(this.image).getCharacters();
 	}
 	
 	public Character[][] getCharacters()
