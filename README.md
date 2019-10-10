@@ -1,4 +1,4 @@
-# Optical Character Recognizer
+# Optical Character Recognizer [![Build Status](https://travis-ci.org/kortescode/One-Time-Password-Generator.svg?branch=master)](https://travis-ci.org/kortescode/One-Time-Password-Generator)
 
 Optical Character Recognizer is a Java executable (Jar). It converts handwritten characters into machine-encoded characters using a multilayer artificial neural network system.
 
