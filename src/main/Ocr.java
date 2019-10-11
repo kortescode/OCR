@@ -224,6 +224,7 @@ final public class Ocr extends KeyAdapter implements ActionListener
     	}
     }
     
+    @SuppressWarnings("deprecation")
     private class DrawAction implements ActionListener
     {
     	private Graphics2D graphics;
@@ -287,7 +288,7 @@ final public class Ocr extends KeyAdapter implements ActionListener
 
     	private class DoneAction implements ActionListener
     	{
-    		 @Override
+			 @Override
              public void actionPerformed(ActionEvent e)
              {
     			 fileName.setText(DEFAULTFILENAME);

@@ -4,5 +4,5 @@
 .settings/
 bin/
 img/sample/
-*.jar
+OCR.jar
 *.class
