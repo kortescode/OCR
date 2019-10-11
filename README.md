@@ -35,7 +35,8 @@ make run
 ```
 
 Browse a BMP image or draw characters:
-<img src="img/previews/draw_preview.png" width="250" title="Optical Character Recognizer draw preview"> <img src="img/previews/browse_preview.png" width="250" title="Optical Character Recognizer browse preview">
+
+<img src="img/previews/browse_preview.png" width="250" title="Optical Character Recognizer browse preview"> <img src="img/previews/draw_preview.png" width="250" title="Optical Character Recognizer draw preview">
 
 Some BMP example are availbale in:
 - [`img/letters/`](img/letters/)
@@ -44,10 +45,15 @@ Some BMP example are availbale in:
 - [`img/symbols/`](img/symbols/)
 - [`img/texts/`](img/texts/)
 
-The vertical space sensibility is defined by the `MATRIX_SPACE_SENSI_Y` constant (see [`ICharactersConstants.java`](src/bmp/ICharactersConstants.java)).
-- The horizontal space sensibility is defined by the `MIN_SPACE_CHARS` constant (see [`INeuralNetworkConstants.java`](src/fann/INeuralNetworkConstants.java)).
-
 <img src="img/previews/letter_preview.png" width="250" title="Optical Character Recognizer letter preview"> <img src="img/previews/symbol_preview.png" width="250" title="Optical Character Recognizer symbol preview">
+
+### Constants
+
+- Drawing pen stroke: `DRAWINGSTROKE` in [`Ocr.java`](src/main/Ocr.java)
+- Drawing image width: `DRAWINGIMGWIDTH` in [`Ocr.java`](src/main/Ocr.java)
+- Drawing image height: `DRAWINGIMGHEIGHT` in [`Ocr.java`](src/main/Ocr.java)
+- Vertical space recognition sensibility: `MATRIX_SPACE_SENSI_Y` in [`ICharactersConstants.java`](src/bmp/ICharactersConstants.java)
+- Horizontal space recognition sensibility: `MIN_SPACE_CHARS` in [`INeuralNetworkConstants.java`](src/fann/INeuralNetworkConstants.java)
 
 ## License
 
