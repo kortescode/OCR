@@ -33,18 +33,21 @@ To launch the Java executable, use:
 ```bash
 make run
 ```
-Then, browse, select an BMP image and click on the "Start" button. Some BMP example are availbale in:
+
+Browse a BMP image or draw characters:
+<img src="img/previews/draw_preview.png" width="250" title="Optical Character Recognizer draw preview"> <img src="img/previews/browse_preview.png" width="250" title="Optical Character Recognizer browse preview">
+
+Some BMP example are availbale in:
 - [`img/letters/`](img/letters/)
 - [`img/letters_small/`](img/letters_small/)
 - [`img/numbers/`](img/numbers/)
 - [`img/symbols/`](img/symbols/)
-- [`img/text/`](img/texts/)
+- [`img/texts/`](img/texts/)
 
 The vertical space sensibility is defined by the `MATRIX_SPACE_SENSI_Y` constant (see [`ICharactersConstants.java`](src/bmp/ICharactersConstants.java)).
+- The horizontal space sensibility is defined by the `MIN_SPACE_CHARS` constant (see [`INeuralNetworkConstants.java`](src/fann/INeuralNetworkConstants.java)).
 
-The horizontal space sensibility is defined by the `MIN_SPACE_CHARS` constant (see [`INeuralNetworkConstants.java`](src/fann/INeuralNetworkConstants.java)).
-
-<img src="img/previews/letter_preview.png" width="250" title="Optical Character Recognizer letter preview"> <img src="img/previews/symbol_preview.png" width="250" title="Optical Character Recognizer symbol preview"> <img src="img/previews/browse_preview.png" width="250" title="Optical Character Recognizer browse preview">
+<img src="img/previews/letter_preview.png" width="250" title="Optical Character Recognizer letter preview"> <img src="img/previews/symbol_preview.png" width="250" title="Optical Character Recognizer symbol preview">
 
 ## License
 
