@@ -1,12 +1,15 @@
 package util;
 
-public class ArgumentsException extends Exception {
+public class ArgumentsException extends Exception
+{
 
-	public ArgumentsException() {
+	public ArgumentsException()
+	{
 		super("Invalid Arguments");
 	}
 
-	public ArgumentsException(String msg) {
+	public ArgumentsException(String msg)
+	{
 		super(msg);
 	}
 }

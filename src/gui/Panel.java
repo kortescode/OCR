@@ -1,25 +1,25 @@
-package widget;
+package gui;
 
 import java.awt.BorderLayout;
-
+import java.awt.FlowLayout;
 import javax.swing.JPanel;
 
-public class Panel extends JPanel {
+public class Panel extends JPanel
+{
     protected JPanel body;
-
     protected JPanel bottom;
-
-    private JPanel   container;
+    private   JPanel container;
     protected JPanel left;
     protected JPanel right;
     protected JPanel top;
 
-    public Panel() {
+    public Panel()
+    {
         super(new BorderLayout(10, 10));
 
         this.body = new JPanel(new BorderLayout());
         this.bottom = new JPanel(new BorderLayout());
-        this.top = new JPanel(new BorderLayout());
+        this.top = new JPanel(new FlowLayout(FlowLayout.CENTER));
         this.right = new JPanel(new BorderLayout());
         this.left = new JPanel(new BorderLayout());
 
@@ -43,43 +43,53 @@ public class Panel extends JPanel {
         this.setBackground(Window.APP_BG);
     }
 
-    public JPanel getBody() {
+    public JPanel getBody()
+    {
         return body;
     }
 
-    public JPanel getBottom() {
+    public JPanel getBottom()
+    {
         return bottom;
     }
 
-    public JPanel getLeft() {
+    public JPanel getLeft()
+    {
         return left;
     }
 
-    public JPanel getRight() {
+    public JPanel getRight()
+    {
         return right;
     }
 
-    public JPanel getTop() {
+    public JPanel getTop()
+    {
         return top;
     }
 
-    public void setBody(JPanel body) {
+    public void setBody(JPanel body)
+    {
         this.body = body;
     }
 
-    public void setBottom(JPanel bottom) {
+    public void setBottom(JPanel bottom)
+    {
         this.bottom = bottom;
     }
 
-    public void setLeft(JPanel left) {
+    public void setLeft(JPanel left)
+    {
         this.left = left;
     }
 
-    public void setRight(JPanel right) {
+    public void setRight(JPanel right)
+    {
         this.right = right;
     }
 
-    public void setTop(JPanel top) {
+    public void setTop(JPanel top)
+    {
         this.top = top;
     }
 }

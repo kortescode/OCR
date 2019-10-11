@@ -1,6 +1,6 @@
 package fann;
 
-import java.io.File;
+import java.awt.image.BufferedImage;
 import java.io.IOException;
 import bmp.Image;
 import com.googlecode.fannj.Fann;
@@ -8,10 +8,11 @@ import com.googlecode.fannj.Fann;
 public class NeuralNetwork
 {
 	private Fann fann = null;
+	private Image image = null;
 	private String result = null;
 	private int result_nbr = 0;
 	private float reliability = 0;
-	
+
 	public NeuralNetwork(String confFile)
 	{
 		this.fann = new Fann(confFile);
@@ -29,34 +30,19 @@ public class NeuralNetwork
 		return new NeuralNetwork(confFile);
 	}
 	
-	private void setResult(float[] outputArray)
+	public boolean compute(BufferedImage image) throws IOException
 	{
-		int nSaved = -1;
-		float output = 0;
-		
-		for (int n = 0; n < INeuralNetworkConstants.OUTPUT_NEURON_NBR; ++n)
-			if (outputArray[n] > output && n != 77) // sans le char 'espace'
-			{
-				output = outputArray[n];
-				nSaved = n;
-			}
-		this.result += INeuralNetworkConstants.CHAR_ARRAY[nSaved];
-		++this.result_nbr;
-		this.reliability += outputArray[nSaved] * 100;
-	}
-	
-	public boolean compute(String inputFileName) throws IOException
-	{
-		File file;
 		bmp.Character[][] characters;
 	
-		if (inputFileName != null)
+		if (image != null)
 		{
 			this.result = "";
 			this.result_nbr = 0;
 			this.reliability = 0;
-			file = new File(inputFileName);
-			if ((characters = (Image.getFromFile(file)).getCharacters()) != null)
+			this.image = Image.getFromImage(image);
+			
+			if ((characters = this.image.getCharacters()) != null)
+			{
 				for (int i = 0; i < characters.length; ++i)
 				{
 					for (int j = 0; j < characters[i].length; ++j)
@@ -64,12 +50,15 @@ public class NeuralNetwork
 						if (characters[i][j] != null)
 							this.setResult(this.fann.run(characters[i][j].getBinaryArray()));
 						else
-							this.result += " ";
+							this.setResult(" ");
 					}
 					if (i + 1 < characters.length)
-						this.result += "\n";
+						this.setResult("\n");
 				}
-			this.result = this.result.trim().replaceAll("\n", " ").replaceAll(" {" + INeuralNetworkConstants.MIN_SPACE_CHARS + ",}", " ").replaceAll(" {2,}", "");
+			}
+			
+			this.normalizeResult();
+			
 			return true;
 		}
 		return false;
@@ -83,5 +72,40 @@ public class NeuralNetwork
 	public float getReliability()
 	{
 		return this.reliability / this.result_nbr;
+	}
+	
+	public BufferedImage getImage()
+	{
+		return this.image.getImage();
+	}
+	
+	private void setResult(String result)
+	{
+		this.result += result;
+	}
+	
+	private void setResult(float[] outputArray)
+	{
+		int nSaved = -1;
+		float output = 0;
+		
+		for (int n = 0; n < INeuralNetworkConstants.OUTPUT_NEURON_NBR; ++n)
+		{
+			if (outputArray[n] > output && n != 77) // Without ' ' character
+			{
+				output = outputArray[n];
+				nSaved = n;
+			}
+		}
+		
+		++this.result_nbr;
+		
+		this.result += INeuralNetworkConstants.CHAR_ARRAY[nSaved];
+		this.reliability += outputArray[nSaved] * 100;
+	}
+	
+	private void normalizeResult()
+	{
+		this.result = this.result.trim().replaceAll("\n", " ").replaceAll(" {" + INeuralNetworkConstants.MIN_SPACE_CHARS + ",}", " ").replaceAll(" {2,}", "");
 	}
 }

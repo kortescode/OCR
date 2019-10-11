@@ -1,4 +1,4 @@
-package widget;
+package gui;
 
 import java.awt.Color;
 import java.awt.Component;
@@ -13,30 +13,32 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-
 import javax.swing.JButton;
 
-public class Button extends JButton implements MouseListener, KeyListener {
-    final protected Color  BORDER_COLOR = Color.decode("#000000");
-    protected Color        firstColor   = Color.decode("#c1d5e8");
-
+public class Button extends JButton implements MouseListener, KeyListener
+{
     protected Color        secondColor  = Color.WHITE;
-    final protected String TEXT;
-
-    public Button(String text) {
+    protected Color        firstColor   = Color.decode("#c1d5e8");
+    final protected Color  BORDER_COLOR = Color.decode("#000000");
+	final protected String TEXT;
+    
+    public Button(String text)
+    {
         super(text);
         this.TEXT = text;
         init();
     }
 
-    public Button(String text, ActionListener action) {
+    public Button(String text, ActionListener action)
+    {
         super(text);
         this.addActionListener(action);
         this.TEXT = text;
         init();
     }
 
-    public Button(String text, ActionListener action, Dimension dim) {
+    public Button(String text, ActionListener action, Dimension dim)
+    {
         super(text);
         this.addActionListener(action);
         this.setPreferredSize(dim);
@@ -44,7 +46,8 @@ public class Button extends JButton implements MouseListener, KeyListener {
         init();
     }
 
-    public Button(String text, ActionListener action, Dimension dim, Font police) {
+    public Button(String text, ActionListener action, Dimension dim, Font police)
+    {
         super(text);
         this.addActionListener(action);
         this.setFont(police);
@@ -52,7 +55,8 @@ public class Button extends JButton implements MouseListener, KeyListener {
         this.TEXT = text;
     }
 
-    public Button(String text, ActionListener action, Font police) {
+    public Button(String text, ActionListener action, Font police)
+    {
         super(text);
         this.addActionListener(action);
         this.setFont(police);
@@ -60,47 +64,52 @@ public class Button extends JButton implements MouseListener, KeyListener {
         init();
     }
 
-    public Button(String text, Dimension dim) {
+    public Button(String text, Dimension dim)
+    {
         super(text);
         this.setPreferredSize(dim);
         this.TEXT = text;
         init();
     }
 
-    public void init() {
+    public void init()
+    {
         this.addMouseListener(this);
         this.setContentAreaFilled(false);
         this.setBorderPainted(false);
     }
 
     @Override
-    public void keyPressed(KeyEvent e) {
-        if (this.isEnabled()) {
+    public void keyPressed(KeyEvent e)
+    {
+        if (this.isEnabled())
             secondColor = Window.APP_BG;
-        }
     }
 
     @Override
-    public void keyReleased(KeyEvent e) {
-        if (this.isEnabled()) {
+    public void keyReleased(KeyEvent e)
+    {
+        if (this.isEnabled())
             secondColor = Color.white;
-        }
     }
 
     @Override
-    public void keyTyped(KeyEvent e) {
-        if (this.isEnabled()) {
+    public void keyTyped(KeyEvent e)
+    {
+        if (this.isEnabled())
             secondColor = Window.APP_BG;
-        }
     }
 
     @Override
-    public void mouseClicked(MouseEvent e) {
+    public void mouseClicked(MouseEvent e)
+    {
     }
 
     @Override
-    public void mouseEntered(MouseEvent e) {
-        if (this.isEnabled()) {
+    public void mouseEntered(MouseEvent e)
+    {
+        if (this.isEnabled())
+        {
             setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
             this.setBorderPainted(true);
             firstColor = Window.APP_BG;
@@ -108,29 +117,36 @@ public class Button extends JButton implements MouseListener, KeyListener {
     }
 
     @Override
-    public void mouseExited(MouseEvent e) {
-        if (this.isEnabled()) {
+    public void mouseExited(MouseEvent e)
+    {
+        if (this.isEnabled())
+        {
             this.setBorderPainted(false);
             firstColor = Color.decode("#c1d5e8");
         }
     }
 
     @Override
-    public void mousePressed(MouseEvent e) {
-        if (this.isEnabled()) {
+    public void mousePressed(MouseEvent e)
+    {
+        if (this.isEnabled())
+        {
             secondColor = Window.APP_BG;
         }
     }
 
     @Override
-    public void mouseReleased(MouseEvent e) {
-        if (this.isEnabled()) {
+    public void mouseReleased(MouseEvent e)
+    {
+        if (this.isEnabled())
+        {
             secondColor = Color.white;
         }
     }
 
     @Override
-    protected void paintComponent(Graphics gp) {
+    protected void paintComponent(Graphics gp)
+    {
         Graphics2D gp2 = (Graphics2D) gp;
         int height = this.getHeight();
         int width = this.getWidth();
@@ -147,7 +163,8 @@ public class Button extends JButton implements MouseListener, KeyListener {
     }
 
     @Override
-    public void setEnabled(boolean enable) {
+    public void setEnabled(boolean enable)
+    {
         this.setFocusPainted(false);
         this.setBorderPainted(false);
         secondColor = Color.decode("#F7F7F0");

@@ -1,21 +1,21 @@
-package widget;
+package gui;
 
 import java.awt.Color;
 import java.awt.Graphics;
 import java.util.ArrayList;
-
 import javax.swing.JPanel;
 
-public class GraphicalDrawingPanel extends JPanel {
-
-    final protected int      AXE_PADDING = 5;
-    protected Color          color;
-
+public class GraphicalDrawingPanel extends JPanel
+{
+	final protected int      AXE_PADDING = 5;
     final protected int      PADDING     = 30;
+    
+    protected Color          color;
     public ArrayList<Double> values;
     protected int            xMax        = 100;
-
-    public GraphicalDrawingPanel(ArrayList<Double> values, Color color) {
+    
+    public GraphicalDrawingPanel(ArrayList<Double> values, Color color)
+    {
         super();
 
         this.setValues(values);
@@ -23,20 +23,23 @@ public class GraphicalDrawingPanel extends JPanel {
         this.setBackground(Color.BLACK);
     }
 
-    protected void drawGraph(Graphics g, ArrayList<Double> values) {
+    protected void drawGraph(Graphics g, ArrayList<Double> values)
+    {
         final int graphWidth = (this.getWidth() - PADDING * 2) - PADDING / 2;
         final int graphHeight = (this.getHeight() - PADDING * 2) - PADDING / 2;
         final int unit = graphWidth / (values.size() * 2);
         int x1 = PADDING;
 
-        for (int i = 0; i < values.size(); i++, x1 += unit * 2) {
+        for (int i = 0; i < values.size(); i++, x1 += unit * 2)
+        {
             int val = (int) (values.get(i) * graphHeight);
             g.fillRect(x1, (this.getHeight() - PADDING) - val, unit, val);
         }
     }
 
     @Override
-    protected void paintComponent(Graphics g) {
+    protected void paintComponent(Graphics g)
+    {
         super.paintComponent(g);
 
         g.setColor(Color.BLACK);
@@ -56,7 +59,8 @@ public class GraphicalDrawingPanel extends JPanel {
             drawGraph(g, values);
     }
 
-    public void setValues(ArrayList<Double> values) {
+    public void setValues(ArrayList<Double> values)
+    {
         this.values = values;
         this.xMax = this.values.size() + 1;
     }

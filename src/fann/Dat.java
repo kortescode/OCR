@@ -2,7 +2,6 @@ package fann;
 
 import java.io.File;
 import java.io.FileWriter;
-
 import bmp.Image;
 
 public class Dat
