@@ -6,7 +6,7 @@ Optical Character Recognizer is a Java executable (Jar). It converts handwritten
 
 ## Requirements
 
-Building the Sudoku Solver executable requires the following tools:
+Building the Optical Character Recognizer executable requires the following tools:
 - X.org graphic system (see [www.x.org](https://www.x.org/wiki/))
 ```bash
 sudo apt-get install xorg
